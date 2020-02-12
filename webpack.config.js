@@ -105,7 +105,12 @@ let config = {
     output: {
         path: path.resolve(__dirname, 'public'),
         filename: '[name].bundle.js'
-    }
+    },
+    devServer: {
+        contentBase: path.join(__dirname, 'public'),
+        compress: true,
+        port: 9000
+      }
 
 };
 const files = glob.sync(path.resolve(__dirname, 'src/*.html'))
