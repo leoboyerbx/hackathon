@@ -1,6 +1,7 @@
 import $ from 'jquery'
+import Nav from './modules/nav'
 
 $(document).ready(function() {
-    console.log('hey')
+    window.nav = new Nav('.slide')
 })
 

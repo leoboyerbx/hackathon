@@ -13,7 +13,24 @@ body {
     background-color: $theme-grey-dark;
     color: $theme-white;
     font-family: "Mark Pro", sans-serif;
+    overflow-x: hidden;
+    overflow-y: scroll;
 }
+
+::selection {
+    color: $theme-color2;
+}
+
+::-webkit-scrollbar {
+    background-color: transparent;
+    width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: $theme-color1;
+    border-radius: 10px;
+}
+
 .slide {
     background-color: $theme-grey-dark;
     position: absolute;
@@ -21,25 +38,49 @@ body {
     top: 0;
     width: 100%;
     height: 100%;
+    transition: all .7s $transition-easing;
+    overflow-y: hidden;
+    
+    &.current {
+        overflow-y: visible;
+    }
 }
 
-#home {
+#home-slide {
     left: 0;
+    overflow-y: hidden;
 }
 
 #part1 {
     left: 100%;
 }
 
-.section-container {
+.section-container-wrapper {
     position: absolute;
-    background-color: $theme-white;
-    top: 50%;
+    top: 90%;
     left: 0;
     height: 30px;
     width: 100%;
+    
+    .section-container {
+        height: 900px;
+        background-color: $theme-white;
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-right: auto;
+        margin-left: auto;
+        color: $theme-black;
+        @include md () {
+            width: 750px;
+        }
+        @include lg () {
+            width: 970px;
+        }
+        @include xl () {
+            width: 1170px;
+        }
+    }
 }
-
 
 #lps-title {
     position: absolute;
@@ -54,21 +95,62 @@ body {
     font-weight: 900;
 }
 
-#title-text {
+#home-title {
     position: absolute;
-    font-size: 3vw;
+    top: 10vh;
+    right: 12vw;
+    left: 12vw;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: column;
+    @include md () {
+        flex-direction: row;
+    }
+}
+
+#title-text {
+    padding-left: 10px;
+    font-size: 5vw;
     font-weight: 600;
+    @include md() {
+        font-size: 2.5vw;
+    }
 }
 
 #title-line {
-    position: absolute;
-    width: 10px;
-    height: 250px;
-    background-color: $theme-white;
+    width: 100%;
+    height: 7px;
+    margin-top: 20px;
+    margin-bottom: 20px; 
+    @include md () {
+        width: 7px;
+        height: 250px;
+        margin-left: 50px;
+        margin-right: 25px; 
+    }
+    background-color: $theme-color1;
 }
 
 #title-logo {
+    width: 40%;
+    max-width: 150px;
+}
+
+#home-pres {
     position: absolute;
-    width: 10px;
-    height: 250px;
+    right: 12vw;
+    left: 12vw;
+    top: 55vh;
+    font-size: 1.1em;
+
+    p {
+        margin-right: 0;
+        margin-left: auto;
+        max-width: 420px;
+    }
+
+    @include md () {
+        top: 47vh;
+    }
 }
