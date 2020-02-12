@@ -1,0 +1,32 @@
+@font-face {
+    font-family: 'Mark Pro';
+    src: url('MarkPro-Heavy.woff2') format('woff2'),
+        url('MarkPro-Heavy.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Mark Pro';
+    src: url('MarkPro-Medium.woff2') format('woff2'),
+        url('MarkPro-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Mark Pro';
+    src: url('MarkPro.woff2') format('woff2'),
+        url('MarkPro.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Mark Pro';
+    src: url('MarkPro-Bold.woff2') format('woff2'),
+        url('MarkPro-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
