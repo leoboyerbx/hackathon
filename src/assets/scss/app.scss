@@ -148,8 +148,8 @@ body {
     .section-container {
         height: 900px;
         background-color: $theme-white;
-        padding-right: 15px;
-        padding-left: 15px;
+        padding: 20px;
+        border-radius: 4px;
         margin-right: auto;
         margin-left: auto;
         color: $theme-black;

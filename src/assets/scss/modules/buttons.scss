@@ -8,6 +8,7 @@
     padding: 15px 30px;
     cursor: pointer;
     transition: all .3s ease;
+    text-decoration: none;
 }
 .btn-theme {
     background-color: $theme-color1;
@@ -21,13 +22,14 @@
     border-color: $theme-color1;
     &:hover {
         background-color: $theme-color1;
+        color: $theme-white;
     }
 }
 .btn-light {
-    background-color: $theme-grey-light;
+    background-color: $theme-white;
     color: $theme-grey-dark;
     &:hover {
-        background-color: $theme-white;
+        background-color: #fff;
     }
 }
 .btn-outline-light {
@@ -36,5 +38,20 @@
     &:hover {
         background-color: $theme-white;
         color: $theme-black;
+    }
+}
+.btn-dark {
+    background-color: $theme-grey-dark;
+    color: $theme-white;
+    &:hover {
+        background-color: $theme-black;
+    }
+}
+.btn-outline-dark {
+    border-color: $theme-grey-dark;
+    color: inherit;
+    &:hover {
+        background-color: $theme-grey-dark;
+        color: $theme-white;
     }
 }
