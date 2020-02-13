@@ -42,8 +42,9 @@ export default class Nav {
          || ev.target.classList.contains('section-container-wrapper')
          || this.parent.scrollTop() > 0
          ) {
-
+            
         } else {
+            
             const direction = ev.originalEvent.deltaY
             ev.preventDefault()
             if (!this.animating) {
@@ -60,24 +61,24 @@ export default class Nav {
     }
 
     pullUpSection (section) {
-        section.querySelector('section-container').style.transform = 'translate3d(0, -100px, 0)'
+        section.style.transform = 'translate3d(0, -100px, 0)'
     }
 
     releaseSection (section) {
-        section.querySelector('section-container').style.transform = 'translate3d(0, 0, 0)'
+        console.log('hey')
+        section.style.transform = 'translate3d(0, 0, 0)'
     }
 
     setUpSectionsHover () {
         this.sections.mouseover(ev => {
             if (this.parent.scrollTop() === 0) {
-                this.pullUpSection(ev.currentTarget)
+                this.pullUpSection(ev.currentTarget.querySelector('.section-container'))
             }
         })
         this.sections.mouseout(ev => {
             if (this.parent.scrollTop() === 0) {
-                this.releaseSection(ev.currentTarget)
+                this.releaseSection(ev.currentTarget.querySelector('.section-container'))
             }
         })
-    }
     }
 }
