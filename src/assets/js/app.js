@@ -5,6 +5,7 @@ $(document).ready(function() {
     const slidingDuration = parseFloat($('.slide').css('transition-duration')) * 1000
     const $parent = $('#page-wrapper')
 
+    
     let nav = new Nav('.slide', slidingDuration)
     let animating = false;
 
