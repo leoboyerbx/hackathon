@@ -1,21 +1,23 @@
 import $ from 'jquery'
 
 export default class Nav {
-    constructor (slides, parent, updateDelay = 0) {
+    constructor (slides, sections, parent, updateDelay = 0) {
         this.slides = $(slides)
+        this.sections = $(sections)
+        this.parent = $(parent)
         this.numSlides = this.slides.length
         this.currentSlide = 0
-        this.parent = parent
         this.updateDelay = updateDelay
         this.animating = false
         this.scrollHandler = this.scrollHandler.bind(this)
 
+        this.setUpSectionsHover()
 
         this.incite = {
             $: $('#incite-wrapper'),
-            show: () => this.incite.$.addClass('visible'),
-            showFirstTime: () => setTimeout(() => this.incite.$.addClass('delayVisible'), 10),
-            hide: () => this.incite.$.removeClass('visible', 'delayVisible')
+            show: function () { this.$.addClass('visible') },
+            showFirstTime: function () { setTimeout(() => this.$.addClass('delayVisible'), 10) },
+            hide: function () { this.$.removeClass('visible delayVisible') }
         }
         this.incite.showFirstTime()
     }
@@ -40,6 +42,7 @@ export default class Nav {
          || ev.target.classList.contains('section-container-wrapper')
          || this.parent.scrollTop() > 0
          ) {
+
         } else {
             const direction = ev.originalEvent.deltaY
             ev.preventDefault()
@@ -54,6 +57,27 @@ export default class Nav {
                 setTimeout(() => this.animating = false, this.slidingDuration)
             }
         }
+    }
 
+    pullUpSection (section) {
+        section.querySelector('section-container').style.transform = 'translate3d(0, -100px, 0)'
+    }
+
+    releaseSection (section) {
+        section.querySelector('section-container').style.transform = 'translate3d(0, 0, 0)'
+    }
+
+    setUpSectionsHover () {
+        this.sections.mouseover(ev => {
+            if (this.parent.scrollTop() === 0) {
+                this.pullUpSection(ev.currentTarget)
+            }
+        })
+        this.sections.mouseout(ev => {
+            if (this.parent.scrollTop() === 0) {
+                this.releaseSection(ev.currentTarget)
+            }
+        })
+    }
     }
 }

@@ -4,7 +4,7 @@ import Nav from './modules/nav'
 $(document).ready(function() {
     const slidingDuration = parseFloat($('.slide').css('transition-duration')) * 1000
     const $parent = $('#page-wrapper')    
-    window.nav = new Nav('.slide', $parent, slidingDuration)
+    window.nav = new Nav('.slide', '.section-container-wrapper', $parent, slidingDuration)
 
 
 

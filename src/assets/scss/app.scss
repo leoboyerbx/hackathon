@@ -137,6 +137,7 @@ body {
     top: 90%;
     left: 0;
     width: 100%;
+    display: block;
     
     .section-container {
         height: 900px;
@@ -146,6 +147,8 @@ body {
         margin-right: auto;
         margin-left: auto;
         color: $theme-black;
+        transition: all .4s $transition-easing;
+        
         @include md () {
             width: 750px;
         }
