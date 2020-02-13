@@ -289,14 +289,17 @@ body {
     }
 }
 
-.background-title {
+.background-title-wrapper {
     position: absolute;
     top: 0;
     right: 0;
+    overflow: hidden;
+}
+.background-title {
     color: $theme-color1;
     transition-delay: .7s;
     font-size: 40vw;
-    transform: translate(10%, -2%);
+    transform: translate(10%, -20%);
     opacity: 0;
     @include md() {
         font-size: 20vw;
