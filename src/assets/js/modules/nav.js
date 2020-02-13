@@ -51,8 +51,8 @@ export default class Nav {
             ev.preventDefault()
             if (this.pulledUpSection) {
                 this.releaseSection()
-            }
-            if (!this.animating) {
+                this.incite.show()
+            } else if (!this.animating) {
                 this.animating = true
                 if (direction > 0) {
                     this.next()
