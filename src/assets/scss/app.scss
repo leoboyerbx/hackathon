@@ -3,6 +3,8 @@
 
 //bootstrap grid only
 @import './lib/bootstrap/bootstrap-grid.scss';
+//icons
+@import './lib/font-awesome/css/all.min.css';
 
 // responsive design
 @import "./globals/breakpoints";
@@ -200,7 +202,7 @@ body {
 #home-title-fluid-block {
     display: flex;
     flex-direction: column;
-    max-width: 500px;
+    max-width: 550px;
 }
 
 #home-title {
@@ -290,9 +292,11 @@ body {
             transform: translateY(0)
         }
     }
-    .btn {
+    .actions {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
         animation: fade-button 1s $transition-easing 3s both;
-        &:last-child { margin-left: 10px; }
         @keyframes fade-button {
             from {
                 opacity: 0;
@@ -303,6 +307,10 @@ body {
                 transform: translateY(0)
             }
         }
+        .btn {
+            white-space: nowrap;
+        }
+
     }
 }
 
