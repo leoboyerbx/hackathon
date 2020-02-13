@@ -1,16 +1,16 @@
 import $ from 'jquery'
 
 export default class Nav {
-    constructor (slides, sections, parent, updateDelay = 0) {
+    constructor (slides, sections, parent) {
         this.slides = $(slides)
         this.sections = $(sections)
         this.parent = $(parent)
         this.numSlides = this.slides.length
         this.currentSlide = 0
-        this.updateDelay = updateDelay
         this.animating = false
         this.scrollHandler = this.scrollHandler.bind(this)
         this.pulledUpSection = null
+        this.slidingDuration = parseFloat(this.slides.css('transition-duration')) * 1000
 
         this.setUpSectionsHover()
 
@@ -45,10 +45,13 @@ export default class Nav {
          || this.parent.scrollTop() > 0
          ) {
             if (this.parent.scrollTop() === 0 && direction < 0) {
-                this.releaseSection(ev.target)
+                this.releaseSection()
             }
         } else {
             ev.preventDefault()
+            if (this.pulledUpSection) {
+                this.releaseSection()
+            }
             if (!this.animating) {
                 this.animating = true
                 if (direction > 0) {
@@ -63,11 +66,12 @@ export default class Nav {
     }
 
     pullUpSection (section) {
-        section.style.transform = 'translate3d(0, -100px, 0)'
+        this.pulledUpSection = section
+        section.style.transform = 'translate3d(0, -50px, 0)'
     }
 
-    releaseSection (section) {
-        console.log('hey')
+    releaseSection (section = this.pulledUpSection) {
+        this.pulledUpSection = null
         section.style.transform = 'translate3d(0, 0, 0)'
     }
 

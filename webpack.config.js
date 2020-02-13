@@ -110,10 +110,11 @@ let config = {
         contentBase: path.join(__dirname, 'public'),
         compress: true,
         port: 9000,
+        hot: false,
+        inline: false,
         host: '0.0.0.0',
         disableHostCheck: true
       }
-
 };
 const files = glob.sync(path.resolve(__dirname, 'src/*.html'))
 files.forEach(file => {
