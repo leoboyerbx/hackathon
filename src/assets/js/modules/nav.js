@@ -10,6 +10,7 @@ export default class Nav {
         this.updateDelay = updateDelay
         this.animating = false
         this.scrollHandler = this.scrollHandler.bind(this)
+        this.pulledUpSection = null
 
         this.setUpSectionsHover()
 
@@ -37,15 +38,16 @@ export default class Nav {
         }
     }
     scrollHandler (ev) {
+        const direction = ev.originalEvent.deltaY
         if (
             ev.target.classList.contains('section-container')
          || ev.target.classList.contains('section-container-wrapper')
          || this.parent.scrollTop() > 0
          ) {
-            
+            if (this.parent.scrollTop() === 0 && direction < 0) {
+                this.releaseSection(ev.target)
+            }
         } else {
-            
-            const direction = ev.originalEvent.deltaY
             ev.preventDefault()
             if (!this.animating) {
                 this.animating = true

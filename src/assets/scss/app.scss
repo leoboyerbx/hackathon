@@ -17,6 +17,7 @@ body {
     color: $theme-white;
     font-family: "Mark Pro", sans-serif;
 }
+
 #page-wrapper {
     position: fixed;
     width: 100%;
@@ -134,7 +135,7 @@ body {
 
 .section-container-wrapper {
     position: absolute;
-    top: 90%;
+    top: 95%;
     left: 0;
     width: 100%;
     display: block;
@@ -148,7 +149,7 @@ body {
         margin-left: auto;
         color: $theme-black;
         transition: all .4s $transition-easing;
-        
+
         @include md () {
             width: 750px;
         }
@@ -184,15 +185,26 @@ body {
     }
 }
 
-#home-title {
+#home-title-wrapper {
     position: absolute;
     top: 10vh;
     right: 12vw;
     left: 12vw;
     display: flex;
     justify-content: flex-end;
+}
+
+#home-title-fluid-block {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+}
+
+#home-title {
+    display: flex;
     align-items: center;
     flex-direction: column;
+    width: 100%;
     @include md () {
         flex-direction: row;
     }
@@ -200,16 +212,14 @@ body {
 
 #title-text {
     padding-left: 10px;
-    font-size: 5vw;
+    font-size: 2.5em;
     font-weight: 600;
     animation: fade-text 1s $transition-easing 1s both;
-    @include md() {
-        font-size: 2.5vw;
-    }
+    width: 100px;
     @keyframes fade-text {
         from {
             opacity: 0;
-            transform: translate(-10%)
+            transform: translate(-20%)
         }
         to {
             opacity: 1;
@@ -248,7 +258,7 @@ body {
     @keyframes fade-logo {
         from {
             opacity: 0;
-            transform: translate(10%)
+            transform: translate(20%)
         }
         to {
             opacity: 1;
@@ -258,24 +268,19 @@ body {
 }
 
 #home-pres {
-    position: absolute;
-    right: 12vw;
-    left: 12vw;
-    top: 55vh;
     font-size: 1.1em;
+    margin-top: 20px;
     animation: fade-pres 1s $transition-easing 1.5s both;
     p {
         margin-right: 0;
-        margin-left: auto;
+        margin-left: 0;
         max-width: 420px;
-    }
-    @include md () {
-        top: 47vh;
+        text-align: justify;
     }
     @keyframes fade-pres {
         from {
             opacity: 0;
-            transform: translateY(-10%)
+            transform: translateY(-20%)
         }
         to {
             opacity: 1;
