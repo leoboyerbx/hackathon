@@ -67,8 +67,7 @@ body {
     transition: all .4s;
     cursor: pointer;
 
-    opacity: 0;
-    pointer-events: none;
+    opacity: 0.5;;
 
     &::before {
         content: '';
@@ -81,18 +80,23 @@ body {
         top: 40%;
         animation: bounce 1.5s infinite $transition-easing;
     }
-    &.visible {
-        opacity: .5;
-        pointer-events: all;
+    &:hover {
+        opacity: 1;
+        border-color: $theme-color2;
     }
     @include touch () {
-        border: 3px solid red;
+        border: 3px solid #43f743;
     }
 }
-
-#incite:hover {
-    opacity: 1;
-    border-color: $theme-color2;
+#incite-wrapper {
+    opacity: 0;
+    transition: all .3s;
+    pointer-events: none;
+    &.visible {
+        transition-delay: 5s;
+        pointer-events: all;
+        opacity: 1;
+    }
 }
 
 @keyframes bounce {
@@ -119,6 +123,9 @@ body {
 
 #part1 {
     left: 100%;
+}
+#part2 {
+    left: 200%;
 }
 
 .section-container-wrapper {
@@ -189,8 +196,19 @@ body {
     padding-left: 10px;
     font-size: 5vw;
     font-weight: 600;
+    animation: fade-text 1s $transition-easing 1s both;
     @include md() {
         font-size: 2.5vw;
+    }
+    @keyframes fade-text {
+        from {
+            opacity: 0;
+            transform: translate(-10%)
+        }
+        to {
+            opacity: 1;
+            transform: translate(0)
+        }
     }
 }
 
@@ -198,7 +216,8 @@ body {
     width: 100%;
     height: 7px;
     margin-top: 20px;
-    margin-bottom: 20px; 
+    margin-bottom: 20px;
+    animation: trace 1s $transition-easing .5s both;
     @include md () {
         width: 7px;
         height: 250px;
@@ -206,11 +225,30 @@ body {
         margin-right: 25px; 
     }
     background-color: $theme-color1;
+    @keyframes trace {
+        from {
+            transform: scale(1, 0)
+        }
+        to {
+            transform: scale(1, 1)
+        }
+    }
 }
 
 #title-logo {
     width: 40%;
     max-width: 150px;
+    animation: fade-logo 1s $transition-easing 1s both;
+    @keyframes fade-logo {
+        from {
+            opacity: 0;
+            transform: translate(10%)
+        }
+        to {
+            opacity: 1;
+            transform: translate(0)
+        }
+    }
 }
 
 #home-pres {
@@ -219,18 +257,47 @@ body {
     left: 12vw;
     top: 55vh;
     font-size: 1.1em;
-
+    animation: fade-pres 1s $transition-easing 1.5s both;
     p {
         margin-right: 0;
         margin-left: auto;
         max-width: 420px;
     }
-
     @include md () {
         top: 47vh;
     }
+    @keyframes fade-pres {
+        from {
+            opacity: 0;
+            transform: translateY(-10%)
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0)
+        }
+    }
 }
 
-#home-button {
-    border: ;
+.button {
+    display: inline-block;
+    border: solid 2px $theme-color1;
+    border-radius: 7px;
+    padding: 15px 30px;
+    cursor: pointer;
+    transition: all .3s ease;
+    animation: fade-button 1s $transition-easing 3s both;
+    @keyframes fade-button {
+        from {
+            opacity: 0;
+            transform: translateY(-10%)
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0)
+        }
+    }
+}
+
+.button:hover {
+    background-color: $theme-color1;
 }

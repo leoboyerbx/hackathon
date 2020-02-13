@@ -1,26 +1,41 @@
 import $ from 'jquery'
 import Nav from './modules/nav'
 
-let animating = false;
-const slidingDuration = parseFloat($('.slide').css('transition-duration')) * 1000
-
-function scrollHandler (ev) {
-    if (!animating) {
-        animating = true
-
-        const direction = ev.originalEvent.deltaY
-        setTimeout(() => animating = false, slidingDuration)
-    }
-}
-
 $(document).ready(function() {
-    let nav = new Nav('.slide')
+    const slidingDuration = parseFloat($('.slide').css('transition-duration')) * 1000
+    const $parent = $('#page-wrapper')
+
+    let nav = new Nav('.slide', slidingDuration)
+    let animating = false;
+
+    function scrollHandler (ev) {
+        const direction = ev.originalEvent.deltaY
+        if (nav.currentSlide === 0
+            || ($parent.scrollTop() === 0 && direction < 0)
+            || ($parent.scrollTop() + $parent.height() >= $parent.get(0).scrollHeight && direction > 0)
+            ) {
+            ev.preventDefault()
+            if (!animating) {
+                animating = true
+                if (direction > 0) {
+                    nav.next()
+                    $('#incite-wrapper').removeClass('visible')
+                } else {
+                    nav.prev()
+                }
+    
+                setTimeout(() => animating = false, slidingDuration)
+            }
+
+        }
+    }
+
 
     //incite
-    setTimeout(() => $('#incite').addClass('visible'), 5000)
-    $('#incite').click(function () {
+    setTimeout(() => $('#incite-wrapper').addClass('visible'), 10)
+    $('#incite, #readmore').click(function () {
         nav.next()
-        $(this).removeClass('visible')
+        $('#incite-wrapper').removeClass('visible')
     })
 
     // $('#page-wrapper').get(0).addEventListener('wheel', scrollHandler)
