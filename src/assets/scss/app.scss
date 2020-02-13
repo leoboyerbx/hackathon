@@ -146,7 +146,6 @@ body {
     display: block;
     
     .section-container {
-        height: 900px;
         background-color: $theme-white;
         padding: 20px;
         border-radius: 4px;
@@ -315,7 +314,7 @@ body {
 }
 
 .background-title-wrapper {
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;
     overflow: hidden;

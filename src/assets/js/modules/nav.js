@@ -43,8 +43,9 @@ export default class Nav {
         const direction = ev.originalEvent.deltaY
         if (
             ev.target.classList.contains('section-container')
-         || ev.target.classList.contains('section-container-wrapper')
-         || this.parent.scrollTop() > 0
+            || ev.target.classList.contains('section-container-wrapper')
+            || $(ev.target).parents('.section-container').length > 0
+            || this.parent.scrollTop() > 0
          ) {
             //normal scroll
         } else {
