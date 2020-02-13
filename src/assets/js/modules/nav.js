@@ -8,6 +8,8 @@ export default class Nav {
         this.numSlides = this.slides.length
         this.currentSlide = 0
         this.animating = false
+        
+        this.deltaHandler = this.deltaHandler.bind(this)
         this.scrollHandler = this.scrollHandler.bind(this)
         this.pulledUpSection = null
         this.slidingDuration = parseFloat(this.slides.css('transition-duration')) * 1000
@@ -37,22 +39,17 @@ export default class Nav {
             setTimeout(() => this.currentSlide = index, this.updateDelay)
         }
     }
-    scrollHandler (ev) {
+    deltaHandler (ev) {
         const direction = ev.originalEvent.deltaY
         if (
             ev.target.classList.contains('section-container')
          || ev.target.classList.contains('section-container-wrapper')
          || this.parent.scrollTop() > 0
          ) {
-            if (this.parent.scrollTop() === 0 && direction < 0) {
-                this.releaseSection()
-            }
+            //normal scroll
         } else {
             ev.preventDefault()
-            if (this.pulledUpSection) {
-                this.releaseSection()
-                this.incite.show()
-            } else if (!this.animating) {
+            if (!this.animating) {
                 this.animating = true
                 if (direction > 0) {
                     this.next()
@@ -62,6 +59,12 @@ export default class Nav {
     
                 setTimeout(() => this.animating = false, this.slidingDuration)
             }
+        }
+    }
+
+    scrollHandler (ev) {
+        if (this.parent.scrollTop() === 0 && this.pulledUpSection) {
+            this.releaseSection()
         }
     }
 

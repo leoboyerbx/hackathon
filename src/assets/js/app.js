@@ -13,7 +13,8 @@ $(document).ready(function() {
     })
 
     // $('#page-wrapper').get(0).addEventListener('wheel', scrollHandler)
-    $('#page-wrapper').on('wheel', nav.scrollHandler)
+    $('#page-wrapper').on('wheel', nav.deltaHandler)
+    $('#page-wrapper').on('scroll', nav.scrollHandler)
 
 
 })
