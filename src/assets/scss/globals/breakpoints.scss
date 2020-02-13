@@ -46,3 +46,9 @@ $screen-xxl-min: 1300px;
     @content;
   }
 }
+
+@mixin touch {
+  @media (hover: none) and (pointer: coarse) {
+    @content;
+  }
+}
