@@ -1,0 +1,40 @@
+// global variables
+@import "../globals/globals";
+
+.btn {
+    display: inline-block;
+    border: solid 2px transparent;
+    border-radius: 7px;
+    padding: 15px 30px;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+.btn-theme {
+    background-color: $theme-color1;
+    color: $theme-white;
+    &:hover {
+        background-color: $theme-color2;
+    }
+}
+.btn-outline-theme {
+    color: inherit;
+    border-color: $theme-color1;
+    &:hover {
+        background-color: $theme-color1;
+    }
+}
+.btn-light {
+    background-color: $theme-grey-light;
+    color: $theme-grey-dark;
+    &:hover {
+        background-color: $theme-white;
+    }
+}
+.btn-outline-light {
+    border-color: $theme-white;
+    color: inherit;
+    &:hover {
+        background-color: $theme-white;
+        color: $theme-black;
+    }
+}
