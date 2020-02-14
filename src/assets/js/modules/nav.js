@@ -36,8 +36,14 @@ export default class Nav {
     goTo(index) {
         if (index >= 0 && index < this.numSlides) {
             this.slides.css('transform', `translate3D(-${index * 100}%, 0, 0)`)
+            
             this.slides.removeClass('current')
+            this.backgrounds.removeClass('current')
+
             this.slides.get(index).classList.add('current')
+            if (this.slides.get(index).dataset.relatedBackground) {
+                $(this.slides.get(index).dataset.relatedBackground).addClass('current')
+            }
             setTimeout(() => this.currentSlide = index, this.updateDelay)
         }
     }

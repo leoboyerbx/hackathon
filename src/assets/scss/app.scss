@@ -57,7 +57,7 @@ body {
         opacity: 0;
         transition: all .35s;
 
-        &.visible {
+        &.current {
             transition-delay: .35s;
             opacity: 1;
         }
