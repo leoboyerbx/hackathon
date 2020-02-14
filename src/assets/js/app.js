@@ -4,7 +4,7 @@ import scrollDismiss from './partials/scrollDismiss'
 
 $(document).ready(function() {
     const $parent = $('#page-wrapper')    
-    window.nav = new Nav('.slide', '.section-container-wrapper', $parent)
+    window.nav = new Nav('.slide', '.section-container-wrapper', '.section-background', $parent)
 
 
 
@@ -17,7 +17,7 @@ $(document).ready(function() {
     $('#page-wrapper').on('wheel', nav.deltaHandler)
     $('#page-wrapper').on('scroll', nav.scrollHandler)
 
-    scrollDismiss('.slide-section')
+    scrollDismiss('.slide-section', $parent.get(0))
 
 
 })
