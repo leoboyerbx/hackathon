@@ -9,11 +9,38 @@ export default function scrollDismiss (sectionsSelector, parent) {
                 translateY: '0px'
             }, {
                 opacity: 0,
-                translateY: '200',
+                translateY: '150px',
             }, {
                 considerEndScroll: false,
                 startPoint: 0,
                 endPoint: 200,
+                parent
+            })
+        }
+
+        // const backgroundNumber = section.querySelector('.background-title-wrapper')
+        if (backgroundNumber) {
+            new ScrollMoov(backgroundNumber, {
+                opacity: 1,
+            }, {
+                opacity: 0.5,
+            }, {
+                considerEndScroll: false,
+                startPoint: 0,
+                endPoint: 500,
+                parent
+            })
+
+            const height = section.offsetHeight + section.querySelector('.section-container-wrapper').offsetHeight
+            console.log(height)
+            new ScrollMoov(backgroundNumber, {
+                translateY: '0px'
+            }, {
+                translateY: height + 'px',
+            }, {
+                considerEndScroll: false,
+                startPoint: 0,
+                endPoint: height,
                 parent
             })
         }
