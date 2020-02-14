@@ -155,6 +155,26 @@ body {
         @include xl () {
             width: 1170px;
         }
+
+        &::before {
+            content: '\f077';
+            font-family: 'Font Awesome 5 Pro';
+            font-style: normal;
+            font-weight: 300;
+            font-size: 4em;
+            color: $theme-white;
+
+            position: absolute;
+            bottom: 100%;
+            width: 100%;
+            left: 0;
+            height: 1.2em;
+            cursor: pointer;
+            
+            display: flex;
+            justify-content: center;
+        }
+
     }
 }
 
@@ -193,7 +213,6 @@ body {
 #home-title-fluid-block {
     display: flex;
     flex-direction: column;
-    max-width: 550px;
 }
 
 #home-title {
@@ -305,6 +324,62 @@ body {
     }
 }
 
+.part-title-wrapper {
+    position: absolute;
+    top: 45vh;
+    left: 10vw;
+    right: 10vw;
+    display: flex;
+}
+
+.part-title {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 100%;
+}
+
+.part-line {
+    height: 100%;
+    width: 7px;
+    transform-origin: left;
+    background-color: $theme-color1;
+    border-radius: 10px;
+    transition: all 0s .7s;
+    transform: scale(0, 1);
+    @include md () {
+        height: 7px;
+        width: 60vw;
+        margin-left: -10vw;
+    }
+}
+
+.part-text {
+    font-size: 2.5em;
+    font-weight: 600;
+    transition: all 0s .7s;
+    width: 100%;
+    margin-bottom: 30px;
+    opacity: 0;
+    transform: translateY(20%);
+}
+
+.part-desc {
+    font-size: 2em;
+    font-weight: 500;
+    transition: all 0s .7s;
+    width: 100%;
+    margin-top: 30px;
+    opacity: 0;
+    transform: translateY(-20%);
+}
+
+.part-actions {
+    transition: all 0s .7s;
+    opacity: 0;
+    transform: translateY(-20%);
+}
+
 .background-title-wrapper {
     position: fixed;
     top: 0;
@@ -328,6 +403,25 @@ body {
         opacity: 1;
         transform: translate(8%, -20%);
         transition: transform 1.2s $transition-easing .7s, opacity 1.2s $transition-easing .7s;
+    }
+    .part-line {
+        transform: scale(1, 1);
+        transition: all 1s $transition-easing .5s;
+    }
+    .part-desc {
+        opacity: 1;
+        transform: translate(0);
+        transition: all 1s $transition-easing 1s;
+    }
+    .part-actions {
+        opacity: 1;
+        transform: translate(0);
+        transition: all 1s $transition-easing 1s;
+    }
+    .part-text {
+        opacity: 1;
+        transform: translate(0);
+        transition: all 1s $transition-easing 1s;
     }
 }
 

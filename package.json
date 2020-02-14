@@ -35,7 +35,7 @@
     "imagemin-mozjpeg": "^8.0.0",
     "imagemin-pngquant": "^8.0.0",
     "jquery": "^3.4.1",
-    "lodash": "^4.17.15",
+    "lodash.throttle": "^4.1.1",
     "parse-css-dimension": "^1.1.0"
   }
 }
