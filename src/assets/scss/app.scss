@@ -160,9 +160,19 @@ body {
             content: '\f077';
             font-family: 'Font Awesome 5 Pro';
             font-style: normal;
-            font-weight: 900;
+            font-weight: 300;
+            font-size: 4em;
             color: $theme-white;
+
+            position: absolute;
+            bottom: 100%;
+            width: 100%;
+            left: 0;
+            height: 1.2em;
+            cursor: pointer;
             
+            display: flex;
+            justify-content: center;
         }
 
     }
@@ -333,13 +343,14 @@ body {
     height: 100%;
     width: 7px;
     transform-origin: left;
+    background-color: $theme-color1;
+    border-radius: 10px;
     // animation: horizontal-trace 1s $transition-easing .5s both;
     @include md () {
         height: 7px;
-        width: 45vw;
+        width: 60vw;
         margin-left: -12vw;
     }
-    background-color: $theme-color1;
     // @keyframes horizontal-trace {
     //     from {
     //         transform: scale(1, 0)
@@ -355,7 +366,7 @@ body {
     font-weight: 600;
     animation: fade-text 1s $transition-easing 1s both;
     width: 100%;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
     @keyframes fade-text {
         from {
             opacity: 0;
@@ -373,7 +384,7 @@ body {
     font-weight: 500;
     animation: fade-text 1s $transition-easing 1s both;
     width: 100%;
-    margin-top: 50px;
+    margin-top: 30px;
     @keyframes fade-text {
         from {
             opacity: 0;
