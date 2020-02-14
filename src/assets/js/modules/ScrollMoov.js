@@ -97,6 +97,7 @@ export default class ScrollMoov {
 
   applyTransform (progress) {
     let trf = ''
+    console.log(this.animatedProperties)
     for (const property of this.animatedProperties) {
       const currentDimensions = []
       for (const dimension of property.dimensions) {
