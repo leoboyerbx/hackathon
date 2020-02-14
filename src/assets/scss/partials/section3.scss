@@ -16,9 +16,19 @@
 .txt-on-img{
     z-index: 1;
 }
-
+.equipe{
+    p{
+        max-width: 50%;
+        text-align: center;
+    }
+}
 .abs-img{
     position: absolute;
     max-width: 100px;
     max-height: 100px;
+}
+.last-part{
+    p{
+        // max-width: 80%;
+    }
 }
