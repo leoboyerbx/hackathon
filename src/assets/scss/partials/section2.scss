@@ -7,7 +7,7 @@
   height: 5px;
   border-radius: 0 300px 300px 0;
   background: $theme-color1;
-  transform: translateX(-20px);
+  transform: translateX(-15px);
 }
 
 .separator-container {
@@ -36,4 +36,8 @@
 .icon-page1 {
   width: 100%;
   object-fit: contain;
+}
+
+.info-liv {
+  font-size: 1.1em;
 }
