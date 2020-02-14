@@ -355,6 +355,7 @@ body {
     font-weight: 600;
     animation: fade-text 1s $transition-easing 1s both;
     width: 100%;
+    margin-bottom: 50px;
     @keyframes fade-text {
         from {
             opacity: 0;
@@ -372,7 +373,7 @@ body {
     font-weight: 500;
     animation: fade-text 1s $transition-easing 1s both;
     width: 100%;
-    margin-top: 
+    margin-top: 50px;
     @keyframes fade-text {
         from {
             opacity: 0;
