@@ -33,25 +33,36 @@ export default class ScrollMoov {
     }
 
     this.animatedProperties = []
+    this.animatedNonTransformProperties = []
     this.initAnimatedProperties(from, to)
   }
 
   updateProgression () {
     const progress = this.getProgress()
     this.applyTransform(progress)
+    this.applyNonTransform(progress)
   }
 
-  initUnidimensionnalProperty (from, to, CssName) {
-    this.animatedProperties.push({
+  initUnidimensionnalProperty (from, to, CssName, isTransformProperty = true) {
+    const property = {
       CssName,
       dimensions: [{
         from: CssDimension(from[CssName].toString()),
         to: CssDimension(to[CssName].toString())
       }],
-      toCssString: function (dimensions) {
+      toCssString: isTransformProperty ?
+        function (dimensions) {
         return `${this.CssName}(${dimensions[0].toString()})`
+      } 
+      : function(dimensions) {
+        return `${dimensions[0].toString()}`
       }
-    })
+    }
+    if (isTransformProperty) {
+      this.animatedProperties.push(property)
+    } else {
+      this.animatedNonTransformProperties.push(property)
+    }
   }
 
   initBidimensionnalProperty (from, to, CssName) {
@@ -74,14 +85,17 @@ export default class ScrollMoov {
   initAnimatedProperties (from, to) {
     for (const CssProperty in from) {
       if (to[CssProperty] !== undefined) {
-        if (['rotate', 'scaleX', 'scaleY', 'translateX', 'translateY', 'opacity'].includes(CssProperty)) {
+        if (['rotate', 'scaleX', 'scaleY', 'translateX', 'translateY'].includes(CssProperty)) {
           this.initUnidimensionnalProperty(from, to, CssProperty)
+        } else if (['opacity'].includes(CssProperty)) {
+          this.initUnidimensionnalProperty(from, to, CssProperty, false)
         } else if (['translate', 'scale'].includes(CssProperty)) {
           this.initBidimensionnalProperty(from, to, CssProperty)
         }
       }
     }
     this.applyTransform(this.getProgress())
+    this.applyNonTransform(this.getProgress())
   }
 
   calcValue (from, to, progress) {
@@ -97,7 +111,6 @@ export default class ScrollMoov {
 
   applyTransform (progress) {
     let trf = ''
-    console.log(this.animatedProperties)
     for (const property of this.animatedProperties) {
       const currentDimensions = []
       for (const dimension of property.dimensions) {
@@ -106,6 +119,16 @@ export default class ScrollMoov {
       trf = trf + ' ' + property.toCssString(currentDimensions)
     }
     this.element.style.transform = trf
+  }
+
+  applyNonTransform (progress) {
+    for (const property of this.animatedNonTransformProperties) {
+      const currentDimensions = []
+      for (const dimension of property.dimensions) {
+        currentDimensions.push(this.calcDimensionValue(dimension.from, dimension.to, progress))
+      }
+      this.element.style[property.CssName] =  property.toCssString(currentDimensions)
+    }
   }
 
   getProgress () {

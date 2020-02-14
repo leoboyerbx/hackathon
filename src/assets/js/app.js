@@ -17,7 +17,7 @@ $(document).ready(function() {
     $('#page-wrapper').on('wheel', nav.deltaHandler)
     $('#page-wrapper').on('scroll', nav.scrollHandler)
 
-    scrollDismiss('.slide-section')
+    scrollDismiss('.slide-section', $parent.get(0))
 
 
 })
