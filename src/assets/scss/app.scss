@@ -155,6 +155,16 @@ body {
         @include xl () {
             width: 1170px;
         }
+
+        &::before {
+            content: '\f077';
+            font-family: 'Font Awesome 5 Pro';
+            font-style: normal;
+            font-weight: 900;
+            color: $theme-white;
+            
+        }
+
     }
 }
 
@@ -193,7 +203,6 @@ body {
 #home-title-fluid-block {
     display: flex;
     flex-direction: column;
-    max-width: 550px;
 }
 
 #home-title {
@@ -302,6 +311,77 @@ body {
             white-space: nowrap;
         }
 
+    }
+}
+
+#part1-title-wrapper {
+    position: absolute;
+    top: 50vh;
+    left: 12vw;
+    right: 12vw;
+    display: flex;
+}
+
+#part1-title {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 100%;
+}
+
+#part1-line {
+    height: 100%;
+    width: 7px;
+    transform-origin: left;
+    // animation: horizontal-trace 1s $transition-easing .5s both;
+    @include md () {
+        height: 7px;
+        width: 45vw;
+        margin-left: -12vw;
+    }
+    background-color: $theme-color1;
+    // @keyframes horizontal-trace {
+    //     from {
+    //         transform: scale(1, 0)
+    //     }
+    //     to {
+    //         transform: scale(1, 1)
+    //     }
+    // }
+}
+
+#part1-text {
+    font-size: 2.5em;
+    font-weight: 600;
+    animation: fade-text 1s $transition-easing 1s both;
+    width: 100%;
+    @keyframes fade-text {
+        from {
+            opacity: 0;
+            transform: translate(-20%)
+        }
+        to {
+            opacity: 1;
+            transform: translate(0)
+        }
+    }
+}
+
+#part1-desc {
+    font-size: 2em;
+    font-weight: 500;
+    animation: fade-text 1s $transition-easing 1s both;
+    width: 100%;
+    margin-top: 
+    @keyframes fade-text {
+        from {
+            opacity: 0;
+            transform: translate(-20%)
+        }
+        to {
+            opacity: 1;
+            transform: translate(0)
+        }
     }
 }
 
