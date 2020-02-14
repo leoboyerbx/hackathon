@@ -345,56 +345,39 @@ body {
     transform-origin: left;
     background-color: $theme-color1;
     border-radius: 10px;
-    // animation: horizontal-trace 1s $transition-easing .5s both;
+    transition: all 0s .7s;
+    transform: scale(0, 1);
     @include md () {
         height: 7px;
         width: 60vw;
         margin-left: -10vw;
     }
-    // @keyframes horizontal-trace {
-    //     from {
-    //         transform: scale(1, 0)
-    //     }
-    //     to {
-    //         transform: scale(1, 1)
-    //     }
-    // }
 }
 
 .part-text {
     font-size: 2.5em;
     font-weight: 600;
-    animation: fade-text 1s $transition-easing 1s both;
+    transition: all 0s .7s;
     width: 100%;
     margin-bottom: 30px;
-    @keyframes fade-text {
-        from {
-            opacity: 0;
-            transform: translate(-20%)
-        }
-        to {
-            opacity: 1;
-            transform: translate(0)
-        }
-    }
+    opacity: 0;
+    transform: translateY(20%);
 }
 
 .part-desc {
     font-size: 2em;
     font-weight: 500;
-    animation: fade-text 1s $transition-easing 1s both;
+    transition: all 0s .7s;
     width: 100%;
     margin-top: 30px;
-    @keyframes fade-text {
-        from {
-            opacity: 0;
-            transform: translate(-20%)
-        }
-        to {
-            opacity: 1;
-            transform: translate(0)
-        }
-    }
+    opacity: 0;
+    transform: translateY(-20%);
+}
+
+.part-actions {
+    transition: all 0s .7s;
+    opacity: 0;
+    transform: translateY(-20%);
 }
 
 .background-title-wrapper {
@@ -420,5 +403,24 @@ body {
         opacity: 1;
         transform: translate(8%, -20%);
         transition: transform 1.2s $transition-easing .7s, opacity 1.2s $transition-easing .7s;
+    }
+    .part-line {
+        transform: scale(1, 1);
+        transition: all 1s $transition-easing .5s;
+    }
+    .part-desc {
+        opacity: 1;
+        transform: translate(0);
+        transition: all 1s $transition-easing 1s;
+    }
+    .part-actions {
+        opacity: 1;
+        transform: translate(0);
+        transition: all 1s $transition-easing 1s;
+    }
+    .part-text {
+        opacity: 1;
+        transform: translate(0);
+        transition: all 1s $transition-easing 1s;
     }
 }
