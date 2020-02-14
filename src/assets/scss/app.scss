@@ -43,7 +43,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: $theme-color1;
+    background-color: #ff0000;
     border-radius: 10px;
 }
 
@@ -136,6 +136,9 @@ body {
 }
 #part2 {
     left: 200%;
+}
+#part3 {
+    left: 300%;
 }
 
 .section-container-wrapper {
