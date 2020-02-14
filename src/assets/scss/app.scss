@@ -154,6 +154,7 @@ body {
     display: block;
     
     .section-container {
+        position: relative;
         background-color: $theme-white;
         padding: 20px;
         border-radius: 4px;
@@ -161,7 +162,7 @@ body {
         margin-left: auto;
         color: $theme-black;
         transition: all .4s $transition-easing;
-        overflow: hidden;
+        // overflow: hidden;
 
         @include md () {
             width: 750px;
