@@ -43,7 +43,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: #ff0000;
+    background-color: $theme-white;
     border-radius: 10px;
 }
 
@@ -127,18 +127,7 @@ body {
 }
 
 #home-slide {
-    left: 0;
     overflow-y: hidden;
-}
-
-#part1 {
-    left: 100%;
-}
-#part2 {
-    left: 200%;
-}
-#part3 {
-    left: 300%;
 }
 
 .section-container-wrapper {

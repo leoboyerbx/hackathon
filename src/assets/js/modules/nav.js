@@ -15,6 +15,7 @@ export default class Nav {
         this.slidingDuration = parseFloat(this.slides.css('transition-duration')) * 1000
 
         this.setUpSectionsHover()
+        this.initSlides()
 
         this.incite = {
             $: $('#incite-wrapper'),
@@ -77,6 +78,14 @@ export default class Nav {
     releaseSection (section = this.pulledUpSection) {
         this.pulledUpSection = null
         section.style.transform = 'translate3d(0, 0, 0)'
+    }
+
+    initSlides () {
+        let i = 0;
+        this.slides.each(function () {
+            $(this).css('left', i * 100 + '%')
+            i++
+        })
     }
 
     setUpSectionsHover () {
