@@ -1,9 +1,10 @@
 import $ from 'jquery'
 
 export default class Nav {
-    constructor (slides, sections, parent) {
+    constructor (slides, sections, backgrounds, parent) {
         this.slides = $(slides)
         this.sections = $(sections)
+        this.backgrounds = $(backgrounds)
         this.parent = $(parent)
         this.numSlides = this.slides.length
         this.currentSlide = 0

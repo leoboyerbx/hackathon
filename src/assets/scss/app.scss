@@ -47,8 +47,24 @@ body {
     border-radius: 10px;
 }
 
+#backgrounds-wrapper {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    .section-background {
+        opacity: 0;
+        transition: all .35s;
+
+        &.visible {
+            transition-delay: .35s;
+            opacity: 1;
+        }
+    }
+}
+
 .slide {
-    background-color: $theme-grey-dark;
     position: absolute;
     left: 0;
     top: 0;
@@ -385,17 +401,16 @@ body {
     top: 0;
     right: 0;
     overflow: hidden;
-}
-.background-title {
-    color: $theme-color1;
-    transition-delay: .7s;
-    font-size: 40vw;
-    transform: translate(10%, -20%);
-    opacity: 0;
-    @include md() {
-        font-size: 20vw;
+    .background-title {
+        color: $theme-color1;
+        transition-delay: .7s;
+        font-size: 40vw;
+        transform: translate(8%, -20%);
+        @include md() {
+            font-size: 20vw;
+        }
+        font-weight: 900;
     }
-    font-weight: 900;
 }
 
 .slide.current {
