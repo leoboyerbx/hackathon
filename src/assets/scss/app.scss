@@ -403,23 +403,26 @@ body {
     right: 0;
     overflow: hidden;
     .background-title {
+        opacity: 0;
         color: $theme-color1;
         transition-delay: .7s;
         font-size: 40vw;
-        transform: translate(8%, -20%);
+        transform: translate(10%, -20%);
         @include md() {
             font-size: 20vw;
         }
         font-weight: 900;
     }
 }
-
-.slide.current {
+.section-background.current {
     .background-title {
         opacity: 1;
-        transform: translate(8%, -20%);
+        transform: translate(5%, -20%);
         transition: transform 1.2s $transition-easing .7s, opacity 1.2s $transition-easing .7s;
     }
+}
+
+.slide.current {
     .part-line {
         transform: scale(1, 1);
         transition: all 1s $transition-easing .5s;
