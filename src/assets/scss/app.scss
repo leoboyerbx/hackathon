@@ -161,6 +161,7 @@ body {
         margin-left: auto;
         color: $theme-black;
         transition: all .4s $transition-easing;
+        overflow: hidden;
 
         @include md () {
             width: 750px;
@@ -440,9 +441,7 @@ body {
     }
 }
 
-
-
+@import "partials/section2";
 // partials
-@import "partials/section3.scss";
-
+@import "partials/section3";
 

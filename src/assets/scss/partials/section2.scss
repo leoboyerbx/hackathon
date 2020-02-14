@@ -1,0 +1,30 @@
+.ligne-separator {
+  box-sizing: border-box;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  border-radius: 0 300px 300px 0;
+  background: $theme-color1;
+  transform: translateX(-20px);
+}
+
+.separator-container {
+  height: 1.5em;
+}
+
+.spacer-haut {
+  height: 1em;
+}
+
+.white-part-title {
+  font-size: 2.9em;
+}
+
+.icon-container {
+  background-size: contain;
+  height: 15em;
+  background-position: center;
+  background-repeat: no-repeat;
+}
