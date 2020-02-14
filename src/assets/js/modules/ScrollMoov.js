@@ -1,5 +1,5 @@
 import CssDimension from 'parse-css-dimension'
-import _throttle from 'lodash.throttle'
+import _throttle from 
 
 function documentHeight () {
   const body = document.body

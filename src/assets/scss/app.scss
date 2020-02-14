@@ -324,22 +324,22 @@ body {
     }
 }
 
-#part1-title-wrapper {
+.part-title-wrapper {
     position: absolute;
-    top: 50vh;
-    left: 12vw;
-    right: 12vw;
+    top: 45vh;
+    left: 10vw;
+    right: 10vw;
     display: flex;
 }
 
-#part1-title {
+.part-title {
     display: flex;
     align-items: flex-start;
     flex-direction: column;
     width: 100%;
 }
 
-#part1-line {
+.part-line {
     height: 100%;
     width: 7px;
     transform-origin: left;
@@ -349,7 +349,7 @@ body {
     @include md () {
         height: 7px;
         width: 60vw;
-        margin-left: -12vw;
+        margin-left: -10vw;
     }
     // @keyframes horizontal-trace {
     //     from {
@@ -361,7 +361,7 @@ body {
     // }
 }
 
-#part1-text {
+.part-text {
     font-size: 2.5em;
     font-weight: 600;
     animation: fade-text 1s $transition-easing 1s both;
@@ -379,7 +379,7 @@ body {
     }
 }
 
-#part1-desc {
+.part-desc {
     font-size: 2em;
     font-weight: 500;
     animation: fade-text 1s $transition-easing 1s both;
