@@ -14,6 +14,10 @@
   height: 1.5em;
 }
 
+.separator-container2 {
+  height: 4em;
+}
+
 .spacer-haut {
   height: 1em;
 }
@@ -24,7 +28,12 @@
 
 .icon-container {
   background-size: contain;
-  height: 15em;
+  height: 100%;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+.icon-page1 {
+  width: 100%;
+  object-fit: contain;
 }
