@@ -403,6 +403,9 @@ body {
     top: 0;
     right: 0;
     overflow: hidden;
+    transform: scale(1.4);
+    transform-origin: top right;
+
     .background-title {
         opacity: 0;
         color: $theme-color1;
