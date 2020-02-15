@@ -1,10 +1,11 @@
 import $ from 'jquery'
 
 export default class Nav {
-    constructor (slides, sections, backgrounds, parent) {
+    constructor (slides, sections, backgrounds, navButtons, parent) {
         this.slides = $(slides)
         this.sections = $(sections)
         this.backgrounds = $(backgrounds)
+        this.navButtons = $(navButtons)
         this.parent = $(parent)
         this.numSlides = this.slides.length
         this.currentSlide = 0
@@ -16,6 +17,7 @@ export default class Nav {
         this.slidingDuration = parseFloat(this.slides.css('transition-duration')) * 1000
 
         this.setUpSectionsHover()
+        this.setUpNavButtons()
         this.initSlides()
 
         this.incite = {
@@ -106,5 +108,32 @@ export default class Nav {
                 this.releaseSection(ev.currentTarget.querySelector('.section-container'))
             }
         })
+    }
+
+    scrollToSectionContent () {
+        const container = this.slides.get(this.currentSlide).querySelector('.section-container')
+        if (container) {
+        //     this.slides.get(this.currentSlide).querySelector('.section-container').scrollIntoView({
+        //         behavior: 'smooth'
+        //     })
+            
+            this.parent.animate({ scrollTop: $(container).offset().top }, 'slow', 'easeOutSine')
+        }
+    }
+
+    navButtonsHandler (ev) {
+        const target = ev.target.dataset.navto
+        switch (target) {
+            case 'section-content':
+                this.scrollToSectionContent()
+                break;
+        
+            default:
+                break;
+        }
+    }
+
+    setUpNavButtons () {
+        this.navButtons.click(ev => this.navButtonsHandler(ev))
     }
 }

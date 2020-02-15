@@ -1,10 +1,11 @@
 import $ from 'jquery'
 import Nav from './modules/nav'
 import scrollDismiss from './partials/scrollDismiss'
+import jQueryEasing from './modules/jQueryEasing'
 
 $(document).ready(function() {
     const $parent = $('#page-wrapper')    
-    window.nav = new Nav('.slide', '.section-container-wrapper', '.section-background', $parent)
+    window.nav = new Nav('.slide', '.section-container-wrapper', '.section-background', '[data-navto]', $parent)
 
 
 
@@ -21,3 +22,5 @@ $(document).ready(function() {
 
 
 })
+
+jQueryEasing($)

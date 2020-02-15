@@ -18,13 +18,15 @@ export default function scrollDismiss (sectionsSelector, parent) {
             })
         }
 
-        const backgroundNumber = section.dataset.relatedBackground ? document.querySelector(section.dataset.relatedBackground) : null
+        const backgroundNumber = section.dataset.relatedBackground ? document.querySelector(section.dataset.relatedBackground +' .background-title-wrapper') : null
         if (backgroundNumber) {
             console.log(backgroundNumber)
             new ScrollMoov(backgroundNumber, {
                 opacity: 1,
+                scale: '1.4',
             }, {
                 opacity: 0.5,
+                scale: ['1'],
             }, {
                 considerEndScroll: false,
                 startPoint: 0,
