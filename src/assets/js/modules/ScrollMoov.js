@@ -20,7 +20,6 @@ export default class ScrollMoov {
       this.endPoint = options.endPoint ? options.endPoint : this.getPosition().y + this.element.offsetHeight
     } else {
       this.endPoint = Math.min(options.endPoint ? options.endPoint : this.getPosition().y + this.element.offsetHeight, this.parent === window ? documentHeight() : this.parent.scrollHeight - viewportHeight)
-      // console.log(this.endPoint)
     }
     if (options.deltaEndPoint) {
       this.endPoint -= options.deltaEndPoint
@@ -44,6 +43,7 @@ export default class ScrollMoov {
   }
 
   initUnidimensionnalProperty (from, to, CssName, isTransformProperty = true) {
+    if (Array.isArray(from[CssName])) return
     const property = {
       CssName,
       dimensions: [{
@@ -66,6 +66,7 @@ export default class ScrollMoov {
   }
 
   initBidimensionnalProperty (from, to, CssName) {
+    if (!Array.isArray(from[CssName])) return
     const propToInit = {
       CssName,
       dimensions: [],
@@ -85,7 +86,7 @@ export default class ScrollMoov {
   initAnimatedProperties (from, to) {
     for (const CssProperty in from) {
       if (to[CssProperty] !== undefined) {
-        if (['rotate', 'scaleX', 'scaleY', 'translateX', 'translateY'].includes(CssProperty)) {
+        if (['rotate', 'scaleX', 'scaleY', 'translateX', 'translateY', 'scale'].includes(CssProperty)) {
           this.initUnidimensionnalProperty(from, to, CssProperty)
         } else if (['opacity'].includes(CssProperty)) {
           this.initUnidimensionnalProperty(from, to, CssProperty, false)

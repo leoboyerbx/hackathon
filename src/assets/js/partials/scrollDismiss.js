@@ -19,7 +19,6 @@ export default function scrollDismiss (sectionsSelector, parent) {
         }
 
         const backgroundNumber = section.dataset.relatedBackground ? document.querySelector(section.dataset.relatedBackground +' .background-title-wrapper') : null
-        console.log(section.dataset.relatedBackground)
         if (backgroundNumber) {
             console.log(backgroundNumber)
             new ScrollMoov(backgroundNumber, {
@@ -27,7 +26,7 @@ export default function scrollDismiss (sectionsSelector, parent) {
                 scale: '1.4',
             }, {
                 opacity: 0.5,
-                scale: '1',
+                scale: ['1'],
             }, {
                 considerEndScroll: false,
                 startPoint: 0,
