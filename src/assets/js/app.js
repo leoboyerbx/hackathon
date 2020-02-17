@@ -1,9 +1,8 @@
+import * as Hammer from 'hammerjs';
 import $ from 'jquery'
 import Nav from './modules/nav'
 import scrollDismiss from './partials/scrollDismiss'
 import jQueryEasing from './modules/jQueryEasing'
-import 'hammerjs'
-import ZingTouch from 'zingtouch'
 
 $(document).ready(function() {
     const $parent = $('#page-wrapper')
@@ -18,17 +17,13 @@ $(document).ready(function() {
     $('#page-wrapper').on('wheel', nav.wheelHandler)
     $('#page-wrapper').on('scroll', nav.scrollHandler)
 
-    const activeRegion = new ZingTouch.Region($parent.get(0))
-
-    const gesture = new ZingTouch.Pan()
-    gesture.start = function () {
-        console.log('hey')
-    }
-
-    activeRegion.bind($parent.get(0), gesture, nav.touchHandler)
-    // mc.bind($parent.get(0, 'panstart', () => { console.log('hey') }))
+    nav.slides
+        .on('touchstart', nav.touchHandler().start)
+        .on('touchmove', nav.touchHandler().move)
+        .on('touchend', nav.touchHandler().end)
     // const mc = new Hammer($parent.get(0))
-    // mc.on('pan', nav.touchHandler)
+    // mc.on('panleft', nav.touchHandler)
+    // mc.bind($parent.get(0, 'panstart', () => { console.log('hey') }))
 
     scrollDismiss('.slide-section', $parent.get(0))
 })

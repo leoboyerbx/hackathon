@@ -82,12 +82,25 @@ export default class Nav {
         }
     }
 
-    touchHandler (ev) {
-        console.log(ev.detail)
-        // if (ev.direction === 2 && !this.isOnSlide('last')) {
-        //     console.log(ev)
-        //     this.slides.css('transform', 'translateX('+ ev.deltaX +'px)')
-        // }
+    touchHandler () {
+        return {
+            start: ev => {
+                if (ev.touches.length === 1 && this.parent.scrollTop() === 0) {
+                    this.isTouching = true
+                    this.startX = ev.touches[0].screenX
+                }
+            },
+            move: ev => {
+                if (this.isTouching && this.parent.scrollTop() === 0) {
+                    const delta = ev.touches[0].screenX - this.startX
+                    console.log(delta)
+                }
+            },
+            end: ev => {
+                this.isTouching = false
+                console.log('end')
+            }
+        }
     }
 
     isOnSlide (slide) {
