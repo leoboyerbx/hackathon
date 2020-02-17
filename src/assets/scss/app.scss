@@ -458,7 +458,7 @@ body {
 .slide.current {
     .section-container-wrapper {
         transform: translateY(0);
-        transition: all .3s $transition-easing .7s;
+        transition: all 1s $transition-easing 1.5s;
     }
     .part-line {
         transform: scale(1, 1);
