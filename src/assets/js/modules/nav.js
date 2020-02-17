@@ -108,7 +108,7 @@ export default class Nav {
                 this.slides.addClass('swipetransition')
                 setTimeout(() => {this.slides.removeClass('swipetransition')}, 200)
                 if (this.isTouching) {
-                    const offset = this.parent.width() / 3
+                    const offset = this.parent.width() / 4
                     if (this.delta > offset) {
                         if (this.isOnSlide('first')) {
                             this.recenter()

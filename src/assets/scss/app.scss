@@ -109,7 +109,16 @@ body {
         border-color: $theme-color2;
     }
     @include touch () {
-        border: 3px solid #43f743;
+        border: 2px solid $theme-white;
+        border-radius: 1px;
+        width: 30px;
+        &::before {
+            width: 8px;
+            height: 8px;
+            top: 30%;
+            left: 10px;
+            animation: bounce-touch 1s infinite $transition-easing;
+        }
     }
 }
 #incite-wrapper {
@@ -129,7 +138,7 @@ body {
 
 @keyframes bounce {
     from {
-        transform: translate(-50%, -12px);
+        transform: translateX(-50%, -12px);
         opacity: 0;
     }
     20% {
@@ -143,6 +152,22 @@ body {
         transform: translate(-50%, 12px);
     }
 }
+@keyframes bounce-touch {
+     from {
+         transform: translateX(5px);
+         opacity: 0;
+     }
+     20% {
+         opacity: 1;
+     }
+     80% {
+         opacity: 1;
+     }
+     to {
+         opacity: 0;
+         transform: translateX(-5px);
+     }
+ }
 
 #home-slide {
     overflow-y: hidden;
