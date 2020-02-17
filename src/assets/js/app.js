@@ -11,8 +11,7 @@ $(document).ready(function() {
     $('#incite, #readmore').click(function () {
         nav.next()
     })
-
-    // $('#page-wrapper').get(0).addEventListener('wheel', scrollHandler)
+    // nav events
     $parent.on('wheel', nav.wheelHandler)
     $parent.on('scroll', nav.scrollHandler)
 
