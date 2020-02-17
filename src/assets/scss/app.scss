@@ -110,7 +110,7 @@ body {
     }
     @include touch () {
         border: 2px solid $theme-white;
-        border-radius: 1px;
+        border-radius: 3px;
         width: 30px;
         &::before {
             width: 8px;
@@ -138,7 +138,7 @@ body {
 
 @keyframes bounce {
     from {
-        transform: translateX(-50%, -12px);
+        transform: translate(-50%, -12px);
         opacity: 0;
     }
     20% {
