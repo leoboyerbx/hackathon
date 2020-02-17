@@ -50,6 +50,9 @@ export default class Nav {
             setTimeout(() => this.currentSlide = index, this.updateDelay)
         }
     }
+    recenter () {
+        this.slides.css('transform', `translate3D(-${this.currentSlide * 100}%, 0, 0)`)
+    }
     wheelHandler(ev) {
         const deltaX = ev.originalEvent.deltaX
         const deltaY = ev.originalEvent.deltaY
@@ -88,15 +91,37 @@ export default class Nav {
                 if (ev.touches.length === 1 && this.parent.scrollTop() === 0) {
                     this.isTouching = true
                     this.startX = ev.touches[0].screenX
+                    this.slides.addClass('notransition')
                 }
             },
             move: ev => {
                 if (this.isTouching && this.parent.scrollTop() === 0) {
-                    const delta = ev.touches[0].screenX - this.startX
-                    console.log(delta)
+                    this.delta = ev.touches[0].screenX - this.startX
+                    const transformValue = this.delta - (this.slides.outerWidth() * this.currentSlide)
+
+                    this.slides.css('transform', 'translate3D(' + transformValue + 'px, 0, 0)')
                 }
             },
             end: ev => {
+                this.slides.removeClass('notransition')
+                if (this.isTouching) {
+                    const offset = this.parent.width() / 3
+                    if (this.delta > offset) {
+                        if (this.isOnSlide('first')) {
+                            this.recenter()
+                        } else {
+                            this.prev()
+                        }
+                    } else if (this.delta < -offset) {
+                        if (this.isOnSlide('last')) {
+                            this.recenter()
+                        } else {
+                            this.next()
+                        }
+                    } else {
+                        this.recenter()
+                    }
+                }
                 this.isTouching = false
                 console.log('end')
             }
