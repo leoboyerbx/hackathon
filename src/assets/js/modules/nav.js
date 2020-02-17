@@ -100,10 +100,13 @@ export default class Nav {
                     const transformValue = this.delta - (this.slides.outerWidth() * this.currentSlide)
 
                     this.slides.css('transform', 'translate3D(' + transformValue + 'px, 0, 0)')
+                    this.backgrounds.parent().css('opacity', 1 - Math.abs(this.delta) / this.slides.outerWidth())
                 }
             },
             end: ev => {
                 this.slides.removeClass('notransition')
+                this.slides.addClass('swipetransition')
+                setTimeout(() => {this.slides.removeClass('swipetransition')}, 200)
                 if (this.isTouching) {
                     const offset = this.parent.width() / 3
                     if (this.delta > offset) {
@@ -123,7 +126,7 @@ export default class Nav {
                     }
                 }
                 this.isTouching = false
-                console.log('end')
+                this.backgrounds.parent().animate({opacity: 1})
             }
         }
     }

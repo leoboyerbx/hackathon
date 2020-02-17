@@ -433,7 +433,7 @@ body {
 .slide.current {
     .section-container-wrapper {
         transform: translateY(0);
-        transition: all .3s $transition-easing;
+        transition: all .3s $transition-easing .7s;
     }
     .part-line {
         transform: scale(1, 1);
@@ -464,4 +464,7 @@ body {
 
 .notransition {
     transition: none;
+}
+.swipetranstion {
+    transition: all .2s ease-out;
 }
