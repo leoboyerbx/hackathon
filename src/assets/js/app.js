@@ -13,8 +13,8 @@ $(document).ready(function() {
     })
 
     // $('#page-wrapper').get(0).addEventListener('wheel', scrollHandler)
-    $('#page-wrapper').on('wheel', nav.wheelHandler)
-    $('#page-wrapper').on('scroll', nav.scrollHandler)
+    $parent.on('wheel', nav.wheelHandler)
+    $parent.on('scroll', nav.scrollHandler)
 
     nav.slides
         .on('touchstart', nav.touchHandler().start)
