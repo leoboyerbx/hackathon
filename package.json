@@ -15,7 +15,6 @@
   "devDependencies": {
     "cross-env": "^5.2.0",
     "css-loader": "^3.1.0",
-    "ejs": "^3.0.1",
     "file-loader": "^4.1.0",
     "glob": "^7.1.6",
     "html-loader": "^0.5.5",
@@ -33,7 +32,6 @@
     "webpack-dev-server": "^3.10.3"
   },
   "dependencies": {
-    "hammerjs": "^2.0.8",
     "imagemin-mozjpeg": "^8.0.0",
     "imagemin-pngquant": "^8.0.0",
     "jquery": "^3.4.1",

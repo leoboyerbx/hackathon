@@ -13,6 +13,7 @@ export default class Nav {
 
         this.wheelHandler = this.wheelHandler.bind(this)
         this.scrollHandler = this.scrollHandler.bind(this)
+        this.touchHandler = this.touchHandler.bind(this)
         this.pulledUpSection = null
         this.slidingDuration = parseFloat(this.slides.css('transition-duration')) * 1000
 
@@ -49,6 +50,9 @@ export default class Nav {
             setTimeout(() => this.currentSlide = index, this.updateDelay)
         }
     }
+    recenter () {
+        this.slides.css('transform', `translate3D(-${this.currentSlide * 100}%, 0, 0)`)
+    }
     wheelHandler(ev) {
         const deltaX = ev.originalEvent.deltaX
         const deltaY = ev.originalEvent.deltaY
@@ -81,8 +85,60 @@ export default class Nav {
         }
     }
 
-    touchHandler (ev) {
-        console.log(ev)
+    touchHandler () {
+        return {
+            start: ev => {
+                if (ev.touches.length === 1 && this.parent.scrollTop() === 0) {
+                    this.isTouching = true
+                    this.startX = ev.touches[0].screenX
+                    this.slides.addClass('notransition')
+                }
+            },
+            move: ev => {
+                if (this.isTouching && this.parent.scrollTop() === 0) {
+                    this.delta = ev.touches[0].screenX - this.startX
+                    const transformValue = this.delta - (this.slides.outerWidth() * this.currentSlide)
+
+                    this.slides.css('transform', 'translate3D(' + transformValue + 'px, 0, 0)')
+                    this.backgrounds.parent().css('opacity', 1 - Math.abs(this.delta) / this.slides.outerWidth())
+                }
+            },
+            end: ev => {
+                this.slides.removeClass('notransition')
+                this.slides.addClass('swipetransition')
+                setTimeout(() => {this.slides.removeClass('swipetransition')}, 200)
+                if (this.isTouching) {
+                    const offset = this.parent.width() / 4
+                    if (this.delta > offset) {
+                        if (this.isOnSlide('first')) {
+                            this.recenter()
+                        } else {
+                            this.prev()
+                        }
+                    } else if (this.delta < -offset) {
+                        if (this.isOnSlide('last')) {
+                            this.recenter()
+                        } else {
+                            this.next()
+                        }
+                    } else {
+                        this.recenter()
+                    }
+                }
+                this.isTouching = false
+                this.backgrounds.parent().animate({opacity: 1})
+            }
+        }
+    }
+
+    isOnSlide (slide) {
+        if (slide === "first") {
+            return this.currentSlide === 0
+        } else if (slide === "last") {
+            return this.currentSlide === this.numSlides - 1
+        } else {
+            return this.currentSlide === slide
+        }
     }
 
     pullUpSection (section) {
