@@ -10,8 +10,8 @@ export default class Nav {
         this.numSlides = this.slides.length
         this.currentSlide = 0
         this.animating = false
-        
-        this.deltaHandler = this.deltaHandler.bind(this)
+
+        this.wheelHandler = this.wheelHandler.bind(this)
         this.scrollHandler = this.scrollHandler.bind(this)
         this.pulledUpSection = null
         this.slidingDuration = parseFloat(this.slides.css('transition-duration')) * 1000
@@ -38,7 +38,7 @@ export default class Nav {
     goTo(index) {
         if (index >= 0 && index < this.numSlides) {
             this.slides.css('transform', `translate3D(-${index * 100}%, 0, 0)`)
-            
+
             this.slides.removeClass('current')
             this.backgrounds.removeClass('current')
 
@@ -49,8 +49,10 @@ export default class Nav {
             setTimeout(() => this.currentSlide = index, this.updateDelay)
         }
     }
-    deltaHandler (ev) {
-        const direction = ev.originalEvent.deltaY
+    wheelHandler(ev) {
+        const deltaX = ev.originalEvent.deltaX
+        const deltaY = ev.originalEvent.deltaY
+        const direction = Math.abs(deltaX) > Math.abs(deltaY) ? deltaX : deltaY
         if (
             ev.target.classList.contains('section-container')
             || ev.target.classList.contains('section-container-wrapper')
@@ -67,7 +69,7 @@ export default class Nav {
                 } else {
                     this.prev()
                 }
-    
+
                 setTimeout(() => this.animating = false, this.slidingDuration)
             }
         }
@@ -77,6 +79,10 @@ export default class Nav {
         if (this.parent.scrollTop() === 0 && this.pulledUpSection) {
             this.releaseSection()
         }
+    }
+
+    touchHandler (ev) {
+        console.log(ev)
     }
 
     pullUpSection (section) {
@@ -116,7 +122,7 @@ export default class Nav {
         //     this.slides.get(this.currentSlide).querySelector('.section-container').scrollIntoView({
         //         behavior: 'smooth'
         //     })
-            
+
             this.parent.animate({ scrollTop: $(container).offset().top }, 'slow', 'easeOutSine')
         }
     }
@@ -127,7 +133,7 @@ export default class Nav {
             case 'section-content':
                 this.scrollToSectionContent()
                 break;
-        
+
             default:
                 break;
         }
