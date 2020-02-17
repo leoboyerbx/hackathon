@@ -13,6 +13,7 @@ export default class Nav {
 
         this.wheelHandler = this.wheelHandler.bind(this)
         this.scrollHandler = this.scrollHandler.bind(this)
+        this.touchHandler = this.touchHandler.bind(this)
         this.pulledUpSection = null
         this.slidingDuration = parseFloat(this.slides.css('transition-duration')) * 1000
 
@@ -82,7 +83,21 @@ export default class Nav {
     }
 
     touchHandler (ev) {
-        console.log(ev)
+        console.log(ev.detail)
+        // if (ev.direction === 2 && !this.isOnSlide('last')) {
+        //     console.log(ev)
+        //     this.slides.css('transform', 'translateX('+ ev.deltaX +'px)')
+        // }
+    }
+
+    isOnSlide (slide) {
+        if (slide === "first") {
+            return this.currentSlide === 0
+        } else if (slide === "last") {
+            return this.currentSlide === this.numSlides - 1
+        } else {
+            return this.currentSlide === slide
+        }
     }
 
     pullUpSection (section) {

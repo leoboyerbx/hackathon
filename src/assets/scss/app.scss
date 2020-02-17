@@ -48,6 +48,7 @@ body {
     border-radius: 10px;
 }
 
+
 #backgrounds-wrapper {
     position: fixed;
     left: 0;
@@ -73,7 +74,7 @@ body {
     height: 100%;
     transition: all .7s $transition-easing;
     overflow-y: hidden;
-    
+
     &.current {
         overflow-y: visible;
     }
@@ -153,7 +154,7 @@ body {
     left: 0;
     width: 100%;
     display: block;
-    
+
     .section-container {
         position: relative;
         background-color: $theme-white;
@@ -189,7 +190,7 @@ body {
             left: 0;
             height: 1.2em;
             cursor: pointer;
-            
+
             display: flex;
             justify-content: center;
         }
@@ -272,7 +273,7 @@ body {
         width: 7px;
         height: 250px;
         margin-left: 50px;
-        margin-right: 25px; 
+        margin-right: 25px;
     }
     background-color: $theme-color1;
     @keyframes trace {
@@ -453,3 +454,8 @@ body {
 // partials
 @import "partials/section3";
 
+
+
+.notransition {
+    transition: none;
+}

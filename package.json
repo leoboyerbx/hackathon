@@ -38,6 +38,7 @@
     "imagemin-pngquant": "^8.0.0",
     "jquery": "^3.4.1",
     "lodash.throttle": "^4.1.1",
-    "parse-css-dimension": "^1.1.0"
+    "parse-css-dimension": "^1.1.0",
+    "zingtouch": "^1.0.6"
   }
 }
