@@ -9,8 +9,6 @@ $(document).ready(function() {
     const $parent = $('#page-wrapper')
     window.nav = new Nav('.slide', '.section-container-wrapper', '.section-background', '[data-navto]', $parent)
 
-
-
     //incite
     $('#incite, #readmore').click(function () {
         nav.next()
