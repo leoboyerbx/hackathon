@@ -85,7 +85,7 @@ export default class Nav {
         }
     }
 
-    touchHandler (threshold = 0) {
+    touchHandler () {
         return {
             start: ev => {
                 if (ev.touches.length === 1 && this.parent.scrollTop() === 0) {
@@ -97,12 +97,10 @@ export default class Nav {
             move: ev => {
                 if (this.isTouching && this.parent.scrollTop() === 0) {
                     this.delta = ev.touches[0].screenX - this.startX
-                    if (this.delta > threshold) {
-                        const transformValue = this.delta - (this.slides.outerWidth() * this.currentSlide)
-    
-                        this.slides.css('transform', 'translate3D(' + transformValue + 'px, 0, 0)')
-                        this.backgrounds.parent().css('opacity', 1 - Math.abs(this.delta) / this.slides.outerWidth())
-                    }
+                    const transformValue = this.delta - (this.slides.outerWidth() * this.currentSlide)
+
+                    this.slides.css('transform', 'translate3D(' + transformValue + 'px, 0, 0)')
+                    this.backgrounds.parent().css('opacity', 1 - Math.abs(this.delta) / this.slides.outerWidth())
                 }
             },
             end: ev => {
