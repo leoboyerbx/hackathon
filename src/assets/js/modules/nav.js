@@ -126,6 +126,8 @@ export default class Nav {
                     }
                 }
                 this.isTouching = false
+                this.startX = null
+                this.delta = 0
                 this.backgrounds.parent().animate({opacity: 1})
             }
         }
