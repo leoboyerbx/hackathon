@@ -204,20 +204,16 @@ body {
             width: 1170px;
         }
 
-        &::before {
-            content: '\f077';
-            font-family: 'Font Awesome 5 Pro';
-            font-style: normal;
-            font-weight: 300;
-            font-size: 4em;
-            color: $theme-white;
-
+        .arrow-up {            
             position: absolute;
             bottom: 100%;
             width: 100%;
             left: 0;
             height: 1.2em;
             cursor: pointer;
+            color: $theme-white;
+            font-weight: 300;
+            font-size: 4em;
 
             display: flex;
             justify-content: center;
