@@ -146,11 +146,13 @@ export default class Nav {
     pullUpSection (section) {
         this.pulledUpSection = section
         section.style.transform = 'translate3d(0, -50px, 0)'
+        section.style.marginBottom = '0'
     }
 
     releaseSection (section = this.pulledUpSection) {
         this.pulledUpSection = null
         section.style.transform = 'translate3d(0, 0, 0)'
+        section.style.marginBottom = '50px'
     }
 
     initSlides () {

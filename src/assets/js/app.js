@@ -21,6 +21,16 @@ $(document).ready(function() {
         .on('touchend', nav.touchHandler().end)
 
     scrollDismiss('.slide-section', $parent.get(0))
+
+    // ease scroll
+    document.querySelectorAll('a[href^="#"]').forEach(el => {
+        el.addEventListener('click', ev => {
+            ev.preventDefault()
+            document.querySelector(el.hash).scrollIntoView({
+                behavior: 'smooth'
+            })
+        })
+    })
 })
 
 jQueryEasing($)
