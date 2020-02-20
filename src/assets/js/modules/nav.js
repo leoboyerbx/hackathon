@@ -27,6 +27,8 @@ export default class Nav {
             showFirstTime: function () { setTimeout(() => this.$.addClass('delayVisible'), 10) },
             hide: function () { this.$.removeClass('visible delayVisible') }
         }
+
+        this.goTo(0)
         this.incite.showFirstTime()
     }
     next () {
