@@ -238,11 +238,12 @@ body {
     position: absolute;
     bottom: 0;
     left: 0;
-    color: $theme-color1;
+    color: transparentize($color: $theme-color1, $amount: 0.5);
     font-size: 50vw;
     animation: lps-fade 1.7s $transition-easing both;
     @include md() {
         font-size: 30vw;
+        color: $theme-color1;
     }
     font-weight: 900;
     @keyframes lps-fade {
@@ -259,11 +260,15 @@ body {
 
 #home-title-wrapper {
     position: absolute;
-    top: 10vh;
     right: 12vw;
     left: 12vw;
+    top: 5vh;
     display: flex;
     justify-content: flex-end;
+    @include md () {
+        top: 10vh;
+
+    }
 }
 
 #home-title-fluid-block {
@@ -283,10 +288,13 @@ body {
 
 #title-text {
     padding-left: 10px;
-    font-size: 2.5em;
+    font-size: 1.5em;
     font-weight: 600;
     animation: fade-text 1s $transition-easing 1s both;
     width: 100px;
+    @include md () {
+        font-size: 2.5em;
+    }
     @keyframes fade-text {
         from {
             opacity: 0;
@@ -360,8 +368,7 @@ body {
     }
     .actions {
         display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
+        justify-content: flex-start;
         animation: fade-button 1s $transition-easing 3s both;
         @keyframes fade-button {
             from {
@@ -375,6 +382,9 @@ body {
         }
         .btn {
             white-space: nowrap;
+            &:last-child {
+                margin-left: 8px;
+            }
         }
 
     }
