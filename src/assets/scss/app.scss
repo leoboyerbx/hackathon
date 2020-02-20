@@ -218,6 +218,18 @@ body {
             display: flex;
             justify-content: center;
         }
+        .nav-buttons {
+            width: 100%;
+            margin-top: 20px;
+            padding-top: 20px;
+            display: flex;
+            justify-content: space-between; 
+            flex-wrap: wrap;
+            border-top: 1px solid $theme-black;
+            .btn {
+                margin: 0 10px;
+            }
+        }
 
     }
 }

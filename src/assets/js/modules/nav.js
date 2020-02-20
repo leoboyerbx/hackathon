@@ -187,11 +187,25 @@ export default class Nav {
         }
     }
 
+    scrollToTop () {
+        return new Promise (resolve => {
+            this.parent.animate({ scrollTop: 0 }, 1000, 'easeInOutQuint', resolve)
+        })
+    }
+
     navButtonsHandler (ev) {
         const target = ev.target.dataset.navto
         switch (target) {
             case 'section-content':
                 this.scrollToSectionContent()
+                break;
+
+            case 'next-section':
+                this.scrollToTop().then(() => {this.next() })
+                break;
+
+            case 'prev-section':
+                this.scrollToTop().then(() => {this.prev() })
                 break;
 
             default:
