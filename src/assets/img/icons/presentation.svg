@@ -1,0 +1,51 @@
+<!-- Generator: Adobe Illustrator 24.0.2, SVG Export Plug-In  -->
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="235.1px"
+	 height="174.9px" viewBox="0 0 235.1 174.9" style="enable-background:new 0 0 235.1 174.9;" xml:space="preserve">
+<style type="text/css">
+	.st0{clip-path:url(#SVGID_2_);}
+	.st1{opacity:0.43;clip-path:url(#SVGID_4_);}
+	.st2{clip-path:url(#SVGID_6_);fill:#A1A1A1;}
+	.st3{clip-path:url(#SVGID_6_);fill:#D04C52;}
+	.st4{clip-path:url(#SVGID_8_);}
+	.st5{opacity:0.43;clip-path:url(#SVGID_10_);}
+	.st6{clip-path:url(#SVGID_12_);fill:#A1A1A1;}
+	.st7{clip-path:url(#SVGID_12_);fill:#D04C52;}
+</style>
+<defs>
+</defs>
+<g>
+	<defs>
+		<rect id="SVGID_1_" x="17" y="13" width="201.1" height="160.9"/>
+	</defs>
+	<clipPath id="SVGID_2_">
+		<use xlink:href="#SVGID_1_"  style="overflow:visible;"/>
+	</clipPath>
+	<g class="st0">
+		<defs>
+			<rect id="SVGID_3_" x="17" y="13" width="201.1" height="160.9"/>
+		</defs>
+		<clipPath id="SVGID_4_">
+			<use xlink:href="#SVGID_3_"  style="overflow:visible;"/>
+		</clipPath>
+		<g class="st1">
+			<g>
+				<defs>
+					<rect id="SVGID_5_" width="235.1" height="174.9"/>
+				</defs>
+				<clipPath id="SVGID_6_">
+					<use xlink:href="#SVGID_5_"  style="overflow:visible;"/>
+				</clipPath>
+				<path class="st2" d="M82.3,123.6h-1.2c-4.4,1.5-9,2.5-13.9,2.5c-4.9,0-9.5-1-13.9-2.5h-1.2c-19.4,0-35.2,15.8-35.2,35.2
+					c0,8.3,6.8,15.1,15.1,15.1h70.4c8.3,0,15.1-6.8,15.1-15.1C117.5,139.3,101.8,123.6,82.3,123.6"/>
+				<path class="st3" d="M203,13H82.3c-8.3,0-15.1,7-15.1,15.6v14.6c7.4,0,14.2,2.1,20.1,5.6V33.1H198v90.5h-84.3
+					c6,5.2,10.4,12.2,12.5,20.1H203c8.3,0,15.1-7,15.1-15.6V28.6C218.1,20,211.3,13,203,13"/>
+				<path class="st2" d="M67.3,113.5c16.7,0,30.2-13.5,30.2-30.2c0-16.7-13.5-30.2-30.2-30.2S37.1,66.7,37.1,83.4
+					C37.1,100,50.6,113.5,67.3,113.5"/>
+				<path class="st3" d="M120.4,65.5c-2.9-2.9-7.7-2.9-10.7,0l-4.6,4.6c1.5,4.2,2.4,8.6,2.4,13.3c0,2.1-0.3,4.2-0.6,6.3l8.2-8.2
+					l17.3,17.3c2.9,2.9,7.7,2.9,10.7,0l22.6-22.6l7.6,7.6c3.6,3.6,9.7,1,9.7-4V52c0-2.1-1.7-3.8-3.8-3.8h-27.8c-5,0-7.6,6.1-4,9.7
+					l7.6,7.6l-17.3,17.3L120.4,65.5z"/>
+			</g>
+		</g>
+	</g>
+</g>
+</svg>
