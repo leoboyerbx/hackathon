@@ -227,7 +227,17 @@ body {
             flex-wrap: wrap;
             border-top: 1px solid $theme-black;
             .btn {
-                margin: 0 10px;
+                margin: 10px 10px;
+                flex-grow: 1;
+                &:last-child {
+                    text-align: right;
+                }
+                &:first-child {
+                    text-align: left;
+                }
+                i {
+                    margin: 0 5px;
+                }
             }
         }
 
@@ -312,8 +322,9 @@ body {
     height: 7px;
     margin-top: 20px;
     margin-bottom: 20px;
-    animation: trace 1s $transition-easing .5s both;
+    animation: trace-hz 1s $transition-easing .5s both;
     @include md () {
+        animation-name: trace;
         width: 7px;
         height: 250px;
         margin-left: 50px;
@@ -323,6 +334,14 @@ body {
     @keyframes trace {
         from {
             transform: scale(1, 0)
+        }
+        to {
+            transform: scale(1, 1)
+        }
+    }
+    @keyframes trace-hz {
+        from {
+            transform: scale(0, 1)
         }
         to {
             transform: scale(1, 1)
@@ -392,10 +411,22 @@ body {
 
 .part-title-wrapper {
     position: absolute;
-    top: 45vh;
     left: 10vw;
     right: 10vw;
+    bottom: 100px;
     display: flex;
+    font-size: 0.7em;
+    .btn {
+        font-size: 1.43em;
+    }
+    @include md () {
+        top: 35vh;
+        bottom: auto;
+        font-size: 1em;
+        .btn {
+            font-size: 1em;
+        }
+    }
 }
 
 .part-title {
