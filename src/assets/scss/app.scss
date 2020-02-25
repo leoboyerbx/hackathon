@@ -94,8 +94,7 @@ body {
     top: 50%;
     transition: all .4s;
     cursor: pointer;
-
-    opacity: 0.5;;
+    opacity: 0.5;
 
     &::before {
         content: '';
@@ -172,7 +171,6 @@ body {
          transform: translateX(-5px);
      }
  }
-
 #home-slide {
     overflow-y: hidden;
 }
@@ -208,7 +206,7 @@ body {
             width: 1170px;
         }
 
-        .arrow-up {            
+        .arrow-up {
             position: absolute;
             bottom: 100%;
             width: 100%;
@@ -227,7 +225,7 @@ body {
             margin-top: 20px;
             padding-top: 20px;
             display: flex;
-            justify-content: space-between; 
+            justify-content: space-between;
             flex-wrap: wrap;
             border-top: 1px solid $theme-black;
             .btn {
@@ -572,8 +570,6 @@ body {
 @import "partials/section2";
 // partials
 @import "partials/section3";
-
-
 
 .notransition {
     transition: none;
