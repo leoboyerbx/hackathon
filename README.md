@@ -18,7 +18,7 @@ Composition de l'équipe:
 
 Le site est visible à l'adresse [hackathon.dev-leoboyer.cf](https://hackathon.dev-leoboyer.cf)
 
-Le dossier à publier sur le serveur correspond au dossier "site", rendu sur Moodle, et disponible en release. Si vous avez besoin de modifier le site, il vous faut modifier le code source, puis compiler le tout, comme expliqué ci-dessous.
+Le dossier à publier sur le serveur correspond au dossier "site", rendu sur Moodle, et disponible en [release](https://github.com/leoboyerbx/hackathon/releases/tag/v1.0) (plus précisément [ce fichier](https://github.com/leoboyerbx/hackathon/releases/download/v1.0/Site_hackathon.zip)). Si vous avez besoin de modifier le site, il vous faut modifier le code source, puis compiler le tout, comme expliqué ci-dessous.
 
 ## Modifier le code source du site
 
