@@ -222,15 +222,20 @@ body {
         }
         .nav-buttons {
             width: 100%;
-            margin-top: 20px;
             padding-top: 20px;
             display: flex;
             justify-content: space-between;
+            &.stacked {
+                margin-top: 20px;
+                justify-content: flex-end;
+                border-top: 1px solid $theme-black;
+            }
             flex-wrap: wrap;
-            border-top: 1px solid $theme-black;
             .btn {
-                margin: 10px 10px;
-                flex-grow: 1;
+                margin: 10px 3px;
+                &.fill {
+                    flex-grow: 1;
+                }
                 &:last-child {
                     text-align: right;
                 }

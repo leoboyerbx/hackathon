@@ -39,6 +39,7 @@ export default class Nav {
         this.goTo(this.currentSlide - 1)
     }
     goTo(index) {
+        index = parseInt(index)
         if (index >= 0 && index < this.numSlides) {
             this.slides.css('transform', `translate3D(-${index * 100}%, 0, 0)`)
 
@@ -197,9 +198,19 @@ export default class Nav {
 
     navButtonsHandler (ev) {
         const target = ev.target.dataset.navto
+        const targetSection = ev.target.dataset.navtoSection
         switch (target) {
             case 'section-content':
                 this.scrollToSectionContent()
+                break;
+
+            case 'home':
+                this.scrollToTop().then(() => {this.goTo(0) })
+                break;
+    
+            
+            case 'section':
+                this.scrollToTop().then(() => {this.goTo(targetSection) })
                 break;
 
             case 'next-section':
