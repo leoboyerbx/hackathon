@@ -65,7 +65,7 @@ Un dossier `public/` est alors créé. Il contient les fichiers nécessaires à 
 npm run dev
 ```
 
-- Lancer le serveur de développement: sert les fichiers compilés en local sur le port 9000: le site est alors accessible à l'adresse [localhost:9000]([http://localhost:9000](http://localhost:9000)
+- Lancer le serveur de développement: sert les fichiers compilés en local sur le port 9000: le site est alors accessible à l'adresse [localhost:9000]([http://localhost:9000](http://localhost:9000))
 
 ```bash
 npm start
